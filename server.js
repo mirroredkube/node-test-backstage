@@ -3,8 +3,12 @@ const app = express();
 
 app.set('view engine', 'pug');
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', (req, res) => {
-    res.send('index');
+    res.render('index', {
+        title: 'Homepage'
+      });
 });
 
 const server = app.listen(7000, () => {
